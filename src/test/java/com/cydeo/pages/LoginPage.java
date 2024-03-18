@@ -7,13 +7,11 @@ public class LoginPage extends BasePage{
 
     public void login(){
 
-        CalendarPage calendarPage = new CalendarPage();
-
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
 
-        calendarPage.usernameInput.sendKeys(ConfigReader.getProperty("username"));
-        calendarPage.passwordInput.sendKeys(ConfigReader.getProperty("password"));
-        calendarPage.loginButton.click();
+        usernameInput.sendKeys(ConfigReader.getProperty("username"));
+        passwordInput.sendKeys(ConfigReader.getProperty("password"));
+        loginButton.click();
     }
 
 
