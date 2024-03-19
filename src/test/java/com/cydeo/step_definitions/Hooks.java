@@ -17,8 +17,12 @@ public class Hooks {
     @After
    public void tearDownMethod(Scenario scenario){
 
-        byte[]screenshot =((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-      scenario.attach(screenshot,"image/png",scenario.getName());
+        if (scenario.isFailed()) {
+
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName());
+
+        }
 
 
        System.out.println("@After runs after each scenario");
