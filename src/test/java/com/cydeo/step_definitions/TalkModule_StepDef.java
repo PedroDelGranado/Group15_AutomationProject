@@ -8,6 +8,7 @@ public class TalkModule_StepDef {
 
     TalkPage talkPage = new TalkPage();
 
+    // It passes module name given in the parameter and click on this module icon
     @When("click {string} module on app menu")
     public void click_module_on_app_menu(String moduleName) {
 

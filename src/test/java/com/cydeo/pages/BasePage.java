@@ -23,6 +23,7 @@ public abstract class BasePage {
     public WebElement loginButton;
 
 
+    // Finds and clicks the module icon element given in the parameter
     public void clickModuleOnAppMenu(String moduleName) {
         String locator = "//ul[@id='appmenu']//a[@aria-label='"+moduleName+"']";
         Driver.getDriver().findElement(By.xpath(locator)).click();
