@@ -26,6 +26,11 @@ public class SearchPage extends BasePage {
     public WebElement resultItemName;
 
 
+    //========second part=======
+    @FindBy(css=".logo.logo-icon")
+    public WebElement logoIconElement;
+
+
 
     public void enterItemNameInSearchField(String itemName) {
         BrowserUtils.waitForVisibility(searchInput,10);
