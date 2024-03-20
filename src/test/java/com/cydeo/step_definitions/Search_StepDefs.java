@@ -2,6 +2,7 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.SearchPage;
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,7 +37,26 @@ public class Search_StepDefs {
         System.out.println("searchPage.resultItemName.getText() = " + searchPage.resultItemName.getText());
         BrowserUtils.verifyElementDisplayed(searchPage.resultItemName);
 
+    }
+    //========= 2 part ============
+
+    @When("the user clicks on the App icon at the top left corner of the page")
+    public void the_user_clicks_on_the_app_icon_at_the_top_left_corner_of_the_page() {
+        searchPage.logoIconElement.click();
 
     }
+
+    @Then("the user should be redirected to the Dashboard page")
+    public void the_user_should_be_redirected_to_the_dashboard_page() {
+        Driver.getDriver().getCurrentUrl().contains("dashboard");
+
+
+    }
+
+
+
+
+
+
 
 }
