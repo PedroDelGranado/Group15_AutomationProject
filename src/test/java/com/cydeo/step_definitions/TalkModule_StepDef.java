@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.TalkPage;
+import com.cydeo.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -11,6 +12,8 @@ public class TalkModule_StepDef {
     // It passes module name given in the parameter and click on this module icon
     @When("click {string} module on app menu")
     public void click_module_on_app_menu(String moduleName) {
+
+        BrowserUtils.waitForTitleContains("Dashboard");
 
         talkPage.clickModuleOnAppMenu(moduleName);
 
