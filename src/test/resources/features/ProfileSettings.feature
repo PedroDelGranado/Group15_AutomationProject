@@ -1,4 +1,4 @@
-@B32G15-171
+@US-014
 Feature: Check/Change Profile Settings Functionality
 
   User Story :
@@ -6,25 +6,32 @@ Feature: Check/Change Profile Settings Functionality
 
   Background:
     Given user is already logged in
-    When user clicks on Settings under Profile Module
 
 
-  Scenario: Full Name and Username Verification
-    Then user should see Full name is same as Username
+  Scenario: Matching Full name and Username Verification
+    When user clicks on Settings under Profile section
+    Then the Full name displayed should be the same as the Username
+
+  Scenario: Valid Email Input Verification
+    When user clicks on Settings under Profile section
+    Then user should be able to input a valid Email Address
+      | employee14@gmail.com   |
+      | employee14@hotmail.org |
 
 
-  Scenario: Correct Email Input Verification
-    Then user should be able to enter a Valid Email Address
-
-  Scenario Outline: Profile Settings
-    And user selects "<language>" from language dropdown
-    Then user should be able to see "<language>"
+  @dilarawip
+  Scenario Outline: Language Selection from Dropdown
+    When user clicks on Settings under Profile section
+    And user selects "<language>" from dropdown
+    Then the selected "<language>" should be displayed
     Examples:
       | language         |
       | English (US)     |
-      | Japanese         |
       | Italiano         |
+      | Japanese (日本語)   |
       | Español (México) |
+
+
 
 
 
