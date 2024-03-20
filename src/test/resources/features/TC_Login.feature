@@ -36,11 +36,17 @@ Feature: Trycloud login page functionality
       | Employee333 | Employee123  |
 
   @wip1
-  Scenario: User didn't enter any credentials
+  Scenario: User didn't enter username
+    Given User on the login page of the Trycloud application
+    When Username is blank
+    And User click on the Login button
+    Then User should be able to see the message "Please fill out this field." in the username input box
+  @wip1
+  Scenario: User didn't enter password
     Given User on the login page of the Trycloud application
     When password is blank
     And User click on the Login button
-    Then User should be able to see Error message "please fill out this field"
+    Then User should be able to see the message "Please fill out this field." in the password input box
 
   Scenario: User enters password and sees dots by default
     Given User on the login page of the Trycloud application

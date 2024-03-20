@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
@@ -121,12 +122,30 @@ public class TC_login_StepDefinitions extends BasePage {
         Assert.assertEquals("password", actualPasswordType);
     }
 
+    @When("Username is blank")
+    public void usernameIsBlank() {
+        usernameInput.clear();
+    }
+
+    @Then("User should be able to see the message {string} in the username input box")
+    public void userShouldBeAbleToSeeTheMessageInTheUsernameInputBox(String expectedMessage) {
+        loginPage.passwordInput.sendKeys(Keys.ENTER);
+        String message = usernameInput.getAttribute("validationMessage");
+        System.out.println("message = " + message);
+        Assert.assertEquals(message,expectedMessage);
+    }
     @When("password is blank")
     public void passwordIsBlank() {
         passwordInput.clear();
     }
 
-    @Then("User should be able to see Error message {string}")
-    public void userShouldBeAbleToSeeErrorMessage(String expectedErrormessage) {
+    @Then("User should be able to see the message {string} in the password input box")
+    public void userShouldBeAbleToSeeTheMessageInThePasswordInputBox(String expectedMessage) {
+        loginPage.passwordInput.sendKeys(Keys.ENTER);
+        String message = passwordInput.getAttribute("validationMessage");
+        System.out.println("message = " + message);
+        Assert.assertEquals(message,expectedMessage);
     }
+
+
 }
