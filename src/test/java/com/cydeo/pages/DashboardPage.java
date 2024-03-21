@@ -36,6 +36,11 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//label[starts-with(@class, 'user-status')]")
     public List<WebElement> statusOptions;
 
+    @FindBy(id = "expand")
+    public WebElement profileIcon;
+
+    @FindBy(xpath = "//span[@title='Employee14']")
+    public WebElement profileUserName;
 
 
 
