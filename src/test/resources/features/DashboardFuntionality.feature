@@ -1,4 +1,4 @@
-
+@wip
 Feature: DashboardPage functionality
 
   Background:
@@ -15,12 +15,12 @@ Feature: DashboardPage functionality
       | Circles   |
       | Calendar  |
       | Deck      |
-    Then user should be able to see username in settings menu
+    And user should be able to see username in settings menu
 
 
   Scenario: User can click on Customize button and select any of the Widgets
-    Then user clicks customize button
-    And user can see following widgets
+    When user clicks customize button
+    Then user can see following widgets
       | Status            |
       | Weather           |
       | Upcoming cards    |
@@ -32,10 +32,10 @@ Feature: DashboardPage functionality
 
 
   Scenario: User can click on Set Status button and select any of the Status options
-    Then user clicks on set status button
+    When user clicks on set status button
     Then user should be able to see following status options
       | Online                                 |
       | Away                                   |
       | Do not disturb\nMute all notifications |
       | Invisible\nAppear offline              |
-    Then user can select any of the status options
+    And user can select any of the status options
