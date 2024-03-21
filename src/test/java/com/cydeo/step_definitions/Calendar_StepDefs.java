@@ -59,4 +59,31 @@ public class Calendar_StepDefs {
     }
 
 
+    @And("user clicks on week option")
+    public void userClicksOnWeekOption() {
+
+        calendarPage.weeklyDisplayOption.click();
+
+    }
+
+    @Then("user should see calendar in weekly view format and week in URL")
+    public void userShouldSeeCalendarInWeeklyViewFormatAndWeekInURL() {
+
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Week"));
+
+    }
+
+    @And("user clicks on month option")
+    public void userClicksOnMonthOption() {
+
+        calendarPage.monthlyDisplayOption.click();
+
+    }
+
+    @Then("user should see calendar in monthly view format and month in URL")
+    public void userShouldSeeCalendarInMonthlyViewFormatAndMonthInURL() {
+
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Month"));
+
+    }
 }
