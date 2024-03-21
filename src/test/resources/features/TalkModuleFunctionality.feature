@@ -1,12 +1,15 @@
-@wip
-Feature: Talk Module Functionality
+@B32G15-208
+Feature: Default
 
   Background:
-
+		#@B32G15-205
     Given user is already logged in
     When click "Talk" module on app menu
 
-  Scenario Outline:User can create a new conversation by adding any selected participant
+
+
+  @B32G15-206
+  Scenario Outline: User can create a new conversation by adding any selected participant
     When Click create a new group conversation button
     And Enter conversation name "<conversationName>" in input box
     And Select allow guests to join via link checkbox
@@ -24,16 +27,9 @@ Feature: Talk Module Functionality
       | Test conversation 3 | Employee13 |
 
 
+  @B32G15-207
   Scenario: User can delete a conversation
     When user click option button on the conversation items
     And select Delete conversation option
     And Click yes button in the pop-up
     Then check if the conversation is deleted
-
-
-
-
-
-
-
-
