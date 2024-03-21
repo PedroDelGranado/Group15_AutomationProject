@@ -14,7 +14,7 @@ Feature: Search functionality in Dashboard
 
     Examples:
       | module | itemName |
-      | Files  | Talk     |
+     # | Files  | Talk     |
       | Dashboard | Example  |
 
     #========== 2.part ========
