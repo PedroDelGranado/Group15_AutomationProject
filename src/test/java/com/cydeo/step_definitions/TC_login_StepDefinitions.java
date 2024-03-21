@@ -21,22 +21,26 @@ public class TC_login_StepDefinitions extends BasePage {
     @Given("User on the login page of the Trycloud application")
     public void user_on_the_login_page_of_the_trycloud_application() {
         Driver.getDriver().get(ConfigReader.getProperty("URL"));
+        BrowserUtils.sleep(2);
     }
     @When("User enters correct username")
     public void user_enters_correct_username() {
-        loginPage.usernameInput.sendKeys("username");
+        loginPage.usernameInput.sendKeys(ConfigReader.getProperty("username"));
     }
     @When("User enters correct password")
     public void user_enters_correct_password() {
-        loginPage.passwordInput.sendKeys("password");
+        loginPage.passwordInput.sendKeys(ConfigReader.getProperty("password"));
+        BrowserUtils.sleep(1);
     }
     @When("User click on the Login button")
     public void user_click_on_the_login_button() {
         loginPage.loginButton.click();
+        BrowserUtils.sleep(1);
     }
     @Then("User should see the dashboard page")
     public void user_should_see_the_dashboard_page() {
-        BrowserUtils.verifyTitle("Trycloud");
+        BrowserUtils.waitForTitleContains("Trycloud");
+        BrowserUtils.verifyTitle("Dashboard - Trycloud");
     }
 
     @When("User hits the Enter key")
