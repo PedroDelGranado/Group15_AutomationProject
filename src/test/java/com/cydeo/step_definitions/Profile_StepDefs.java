@@ -2,8 +2,11 @@ package com.cydeo.step_definitions;
 
 import com.cydeo.pages.SettingsPage;
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.ConfigReader;
+import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Profile_StepDefs {
 
@@ -24,6 +27,10 @@ public class Profile_StepDefs {
     @Then("the Full name displayed should be the same as the Username")
     public void the_full_name_displayed_should_be_the_same_as_the_username() {
 
+        String expectedDisplayName = ConfigReader.getProperty("username");
+        String actualDisplayName = settingsPage.displayName.getAttribute("value");
+
+        Assert.assertEquals(expectedDisplayName, actualDisplayName);
 
     }
 

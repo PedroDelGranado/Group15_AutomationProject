@@ -19,6 +19,9 @@ public class SettingsPage extends BasePage {
     @FindBy(xpath = "//a[@href=\"/index.php/settings/user\"]")
     public WebElement settingsLink;
 
+    @FindBy(id = "displayname")
+    public WebElement displayName;
+
 
 
 
