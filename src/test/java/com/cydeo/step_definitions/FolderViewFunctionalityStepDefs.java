@@ -21,10 +21,10 @@ public class FolderViewFunctionalityStepDefs {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
 
-    @Given("user is already logged in")
-    public void user_is_already_logged_in() {
-        loginPage.login();
-    }
+//    @Given("user is already logged in")
+//    public void user_is_already_logged_in() {
+//        loginPage.login();
+//    }
 
     @Then("user click Files icon")
     public void user_click_files_icon() {
