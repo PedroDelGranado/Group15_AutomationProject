@@ -9,7 +9,7 @@ Feature: Default
 
 
   @B32G15-206
-  Scenario Outline: Verify user can create a new conversation by adding any selected participant
+  Scenario Outline: User can create a new conversation by adding any selected participant
     When Click create a new group conversation button
     And Enter conversation name "<conversationName>" in input box
     And Select allow guests to join via link checkbox
@@ -28,7 +28,7 @@ Feature: Default
 
 
   @B32G15-207
-  Scenario: Verify user can delete a conversation
+  Scenario: User can delete a conversation
     When user click option button on the conversation items
     And select Delete conversation option
     And Click yes button in the pop-up
