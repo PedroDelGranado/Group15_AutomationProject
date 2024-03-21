@@ -3,13 +3,13 @@ Feature: Folder View Functionality
 
   Background:
     Given user is already logged in
-    Then user click Files icon
+    When user click Files icon
 
 
     @1
     Scenario: User can change folder view order by Name
-      Then user click the Name icon
-      And user verify changing folder view by clicking Name icon
+      And user click the Name icon
+      Then user verify changing folder view by clicking Name icon
 
     @2
     Scenario: User can change folder view order by Size

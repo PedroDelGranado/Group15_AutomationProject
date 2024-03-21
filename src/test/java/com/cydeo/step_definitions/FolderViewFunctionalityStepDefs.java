@@ -113,6 +113,6 @@ public class FolderViewFunctionalityStepDefs {
     @And("user verify seeing the total values of all files in the first line")
     public void userVerifySeeingTheTotalValuesOfAllFilesInTheFirstLine() {
         System.out.println("folderViewFunctionalityPage.selectedFilesInformation = " + folderViewFunctionalityPage.selectedFilesInformation.getText());
-        Assert.assertTrue(!folderViewFunctionalityPage.selectedFilesInformation.getText().isEmpty());
+        Assert.assertFalse(folderViewFunctionalityPage.selectedFilesInformation.getText().isEmpty());
     }
 }
