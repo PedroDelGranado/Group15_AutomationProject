@@ -1,20 +1,30 @@
 package com.cydeo.step_definitions;
 
+import com.cydeo.pages.SettingsPage;
+import com.cydeo.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Profile_StepDefs {
 
 
+    SettingsPage settingsPage = new SettingsPage();
+
     @When("user clicks on Settings under Profile section")
     public void user_clicks_on_settings_under_profile_section() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        BrowserUtils.waitForClickablility(settingsPage.profileMenuToggle, 5);
+        settingsPage.profileMenuToggle.click();
+        BrowserUtils.waitForClickablility(settingsPage.settingsLink, 5);
+        settingsPage.settingsLink.click();
+
+
     }
+
     @Then("the Full name displayed should be the same as the Username")
     public void the_full_name_displayed_should_be_the_same_as_the_username() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
     }
 
     @Then("user should be able to input a valid Email Address")
@@ -34,15 +44,12 @@ public class Profile_StepDefs {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
+
     @Then("the selected {string} should be displayed")
     public void the_selected_should_be_displayed(String string) {
         // Write code here that turns the phrase above into concrete actions
         throw new io.cucumber.java.PendingException();
     }
-
-
-
-
 
 
 }

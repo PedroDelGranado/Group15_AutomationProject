@@ -7,7 +7,7 @@ Feature: Check/Change Profile Settings Functionality
   Background:
     Given user is already logged in
 
-
+  @dilarawip
   Scenario: Matching Full name and Username Verification
     When user clicks on Settings under Profile section
     Then the Full name displayed should be the same as the Username
@@ -19,7 +19,7 @@ Feature: Check/Change Profile Settings Functionality
       | employee14@hotmail.org |
 
 
-  @dilarawip
+
   Scenario Outline: Language Selection from Dropdown
     When user clicks on Settings under Profile section
     And user selects "<language>" from dropdown
