@@ -20,7 +20,10 @@ public class SettingsPage extends BasePage {
     public WebElement settingsLink;
 
     @FindBy(id = "displayname")
-    public WebElement displayName;
+    public WebElement inputDisplayName;
+
+    @FindBy(id = "email")
+    public WebElement inputEmail;
 
 
 

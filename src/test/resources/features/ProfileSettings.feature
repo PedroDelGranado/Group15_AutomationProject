@@ -7,17 +7,22 @@ Feature: Check/Change Profile Settings Functionality
   Background:
     Given user is already logged in
 
-  @dilarawip
+
   Scenario: Matching Full name and Username Verification
     When user clicks on Settings under Profile section
     Then the Full name displayed should be the same as the Username
 
-  Scenario: Valid Email Input Verification
+
+  @dilarawip
+  Scenario Outline: Valid Email Input Verification
     When user clicks on Settings under Profile section
-    Then user should be able to input a valid Email Address
+    And user inputs valid email address "<email>"
+    Then Email address "<email>" is successfully inputted
+
+    Examples:
+      | email                  |
       | employee14@gmail.com   |
       | employee14@hotmail.org |
-
 
 
   Scenario Outline: Language Selection from Dropdown
