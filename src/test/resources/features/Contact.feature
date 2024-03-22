@@ -23,6 +23,13 @@ Feature: Default
   near the “All Contacts” tab
     Then user can see all the contacts as a list inside the middle column And total number of the contacts near the “All Contacts” tab
 
+ Scenario: User can change the profile picture of any contact with a previously uploaded picture by using “Choose from files” option
+   Then user canchange the profile picture of any contact
+
+   Scenario: User can delete any selected contact
+      When user select a contact
+     Then user can delet the contact
+
 
 
 
