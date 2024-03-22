@@ -7,8 +7,12 @@ import com.cydeo.utilities.Driver;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.eo.Se;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -16,6 +20,7 @@ public class Profile_StepDefs {
 
 
     SettingsPage settingsPage = new SettingsPage();
+
 
     @When("user clicks on Settings under Profile section")
     public void user_clicks_on_settings_under_profile_section() {
@@ -60,15 +65,23 @@ public class Profile_StepDefs {
 
 
     @When("user selects {string} from dropdown")
-    public void user_selects_from_dropdown(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_selects_from_dropdown(String language) {
+
+
+        BrowserUtils.waitForClickablility(settingsPage.languageDropdown, 5);
+        Select langDropdown = new Select(settingsPage.languageDropdown);
+        langDropdown.selectByVisibleText(language);
+
+
     }
 
     @Then("the selected {string} should be displayed")
-    public void the_selected_should_be_displayed(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void the_selected_should_be_displayed(String expectedLanguage) {
+
+        Select langDropdown = new Select(settingsPage.languageDropdown);
+        String actualLanguage = langDropdown.getFirstSelectedOption().getText();
+        Assert.assertEquals(expectedLanguage, actualLanguage);
+
     }
 
 

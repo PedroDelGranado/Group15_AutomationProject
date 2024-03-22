@@ -29,6 +29,7 @@ Feature: Check/Change Profile Settings Functionality
     When user clicks on Settings under Profile section
     And user selects "<language>" from dropdown
     Then the selected "<language>" should be displayed
+
     Examples:
       | language         |
       | English (US)     |

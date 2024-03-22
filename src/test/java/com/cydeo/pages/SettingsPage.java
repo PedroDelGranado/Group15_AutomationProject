@@ -1,9 +1,11 @@
 package com.cydeo.pages;
 
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.eo.Se;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class SettingsPage extends BasePage {
 
@@ -24,6 +26,9 @@ public class SettingsPage extends BasePage {
 
     @FindBy(id = "email")
     public WebElement inputEmail;
+
+    @FindBy(id = "languageinput")
+    public WebElement languageDropdown;
 
 
 
