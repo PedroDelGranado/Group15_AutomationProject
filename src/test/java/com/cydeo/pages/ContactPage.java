@@ -1,5 +1,7 @@
 package com.cydeo.pages;
 
+import com.cydeo.utilities.BrowserUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -22,8 +24,37 @@ public class ContactPage extends BasePage {
     @FindBy(xpath = "//div[@class='app-content-list-item-line-one']")
     public List<WebElement> actualContact;
 
-    @FindBy(xpath = "//div[@class='vue-recycle-scroller__item-wrapper']")
-    public List<WebElement> middleColum;
+    @FindBy(xpath = "(//div[@class='app-navigation-entry__counter'])[1]")
+    public WebElement numberOfContacts;
+
+//    @FindBy(xpath = "//div[@class='vue-recycle-scroller__item-wrapper']")
+//    public WebElement middleColum;
+
+    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-picture-force-white']")
+    public WebElement uploadIcon;
+
+//    @FindBy(xpath = "(//span[@class='action-button__text'])[1]")
+//    public WebElement uploadBtn;
+
+    @FindBy(xpath = "//span[.='Choose from Files']")
+    public WebElement chooseFromFileBtn;
+
+    @FindBy(xpath = "//table[@id='picker-filestable']//span[.='bird.jpeg']")
+    public WebElement img;
+
+    @FindBy(xpath = "//button[.='Choose']")
+    public WebElement chooseBtn;
+
+    @FindBy(xpath = "//div[@class='app-content-list-item-line-one'][1]")
+    public WebElement chooseContact;
+
+    @FindBy(xpath = "//button[@aria-controls='menu-jqbsu']")
+    public WebElement selectBtn;
+
+    @FindBy(xpath = "(//span[.='Delete'])[1]")
+    public WebElement deleteBtn;
+
+
 
 
 }
