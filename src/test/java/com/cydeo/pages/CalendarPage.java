@@ -1,9 +1,13 @@
 package com.cydeo.pages;
 
 import com.cydeo.utilities.Driver;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.time.format.DateTimeFormatter;
 
 public class CalendarPage extends BasePage{
 
@@ -45,8 +49,10 @@ public WebElement fromBox;
 @FindBy(xpath = "//td[@data-day='27']")
 public  WebElement tableDate;
 
-@FindBy(xpath = "//div[@class='fc-event-title-container']")
+@FindBy(xpath = "//div[@class='fc-event-title fc-sticky']")
 public WebElement eventContainer;
 
+@FindBy(xpath = "//button[@class='primary']")
+public WebElement saveButton;
 
 }
