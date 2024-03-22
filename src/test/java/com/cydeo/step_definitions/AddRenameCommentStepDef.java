@@ -41,7 +41,10 @@ public class AddRenameCommentStepDef {
         //addingRenameCommentPage.removeFromFavorites.click();
     }
 
+
+
     // Second US
+
     @And("User rename any {string} from its own three dots menu")
     public void userRenameAnyFromItsOwnThreeDotsMenu(String arg0) {
         Driver.getDriver().switchTo().activeElement().sendKeys("Nice" + Keys.ENTER );
@@ -57,7 +60,6 @@ public class AddRenameCommentStepDef {
         String expectedFileAdded = newFileName + ".xlsx";
 //        String fileName = Driver.getDriver().findElement(By.xpath("(//span[text()='" + newFileName + "'])[2]")).getText();
         Assert.assertTrue(expectedFileAdded.contains(newFileName));
-
 
         addingRenameCommentPage.threeDotsMenu.click();
         addingRenameCommentPage.renameBtn.click();
@@ -77,6 +79,7 @@ public class AddRenameCommentStepDef {
 
 
     // Third US
+
     @And("user leave comments on new comments section")
     public void user_leave_comments_on_new_comments_section() {
         BrowserUtils.sleep(3);
