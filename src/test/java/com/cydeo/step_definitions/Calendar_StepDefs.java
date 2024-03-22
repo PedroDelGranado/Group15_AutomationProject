@@ -16,6 +16,7 @@ public class Calendar_StepDefs {
     CalendarPage calendarPage = new CalendarPage();
     LoginPage loginPage = new LoginPage();
 
+
     @Given("user is already logged in")
     public void user_is_already_logged_in() {
 
@@ -84,6 +85,61 @@ public class Calendar_StepDefs {
     public void userShouldSeeCalendarInMonthlyViewFormatAndMonthInURL() {
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Month"));
+
+    }
+
+    @And("user clicks on new event button")
+    public void userClicksOnNewEventButton() {
+
+        calendarPage.newEventButton.click();
+
+    }
+
+    @And("user enters {string} into event title text box")
+    public void userEntersEventNameIntoEventTitleTextBox(String eventName) {
+
+        calendarPage.eventTitleTextBox.sendKeys(eventName);
+
+    }
+
+    @And("user selects all day checkbox")
+    public void userSelectsAllDayCheckbox() {
+
+        calendarPage.allDayButton.click();
+
+    }
+
+    @And("user selects a date from calendar")
+    public void userSelectsADateFromCalendar() {
+
+        calendarPage.fromBox.click();
+        calendarPage.tableDate.click();
+
+    }
+
+    @And("user clicks save button")
+    public void userClicksSaveButton() {
+
+        calendarPage.saveButton.click();
+
+    }
+
+    @Then("user should see {string} displayed on monthly view calendar")
+    public void userShouldSeeEventDisplayedOnMonthlyViewCalendar(String eventName) {
+
+        if(calendarPage.eventContainer.getText().equals(eventName)){
+            Assert.assertTrue(calendarPage.eventContainer.getText().contains(eventName));
+        }else{
+            System.out.println(eventName + " is not in created event");
+        }
+
+    }
+
+    @And("user selects a date from calendar by typing {string} into from box")
+    public void userSelectsADateFromCalendarByTypingIntoFromBox(String randomDate) {
+
+        calendarPage.fromBox.clear();
+        calendarPage.fromBox.sendKeys(randomDate);
 
     }
 }
