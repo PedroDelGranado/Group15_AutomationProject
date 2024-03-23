@@ -48,10 +48,10 @@ public class ContactPage extends BasePage {
     @FindBy(xpath = "//div[@class='app-content-list-item-line-one'][1]")
     public WebElement chooseContact;
 
-    @FindBy(xpath = "//button[@aria-controls='menu-jqbsu']")
+    @FindBy(xpath = "//div[contains(@class,'action-item header-menu')]")
     public WebElement selectBtn;
 
-    @FindBy(xpath = "(//span[.='Delete'])[1]")
+    @FindBy(xpath = "//div[@class='popover__wrapper']//span[.='Delete']")
     public WebElement deleteBtn;
 
 

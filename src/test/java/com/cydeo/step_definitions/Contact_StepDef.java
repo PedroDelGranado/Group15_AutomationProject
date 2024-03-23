@@ -85,12 +85,16 @@ public class Contact_StepDef {
     @When("user select a contact")
     public void user_select_a_contact() {
         contactPage.chooseContact.click();
+        BrowserUtils.sleep(1);
     }
     @Then("user can delet the contact")
     public void user_can_delet_the_contact() {
         contactPage.selectBtn.click();
+        BrowserUtils.sleep(1);
         contactPage.deleteBtn.click();
-        //Assert.assertTrue(contactPage.chooseContact.is);
+        BrowserUtils.sleep(1);
+        Driver.getDriver().navigate().refresh();
+        Assert.assertFalse(contactPage.chooseContact.isDisplayed());
     }
 
 
