@@ -10,7 +10,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,8 +63,45 @@ public class Contact_StepDef {
 
     @Then("user can see all the contacts as a list inside the middle column And total number of the contacts near the “All Contacts” tab")
     public void userCanSeeAllTheContactsAsAListInsideTheMiddleColumnAndTotalNumberOfTheContactsNearTheAllContactsTab() {
-        System.out.println("contactPage.middleColum.getSize() = " + contactPage.middleColum.getSize());
+        int numberOfContacts = Integer.parseInt(contactPage.numberOfContacts.getText());
+        Assert.assertTrue(numberOfContacts==contactPage.actualContact.size());
     }
 
+    @Then("user canchange the profile picture of any contact")
+    public void userCanchangeTheProfilePictureOfAnyContact() {
+
+        for (WebElement eachContact : contactPage.actualContact){
+            eachContact.click();
+            contactPage.uploadIcon.click();
+            contactPage.chooseFromFileBtn.click();
+            //BrowserUtils.sleep(3);
+            contactPage.img.click();
+            contactPage.chooseBtn.click();
+            Assert.assertTrue(contactPage.img.isDisplayed());
+
+
+        }
     }
+    @When("user select a contact")
+    public void user_select_a_contact() {
+        contactPage.chooseContact.click();
+        BrowserUtils.sleep(1);
+    }
+    @Then("user can delet the contact")
+    public void user_can_delet_the_contact() {
+        contactPage.selectBtn.click();
+        BrowserUtils.sleep(1);
+        contactPage.deleteBtn.click();
+        BrowserUtils.sleep(1);
+        Driver.getDriver().navigate().refresh();
+        Assert.assertFalse(contactPage.chooseContact.isDisplayed());
+    }
+
+
+
+
+
+
+
+}
 
